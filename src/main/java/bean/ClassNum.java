@@ -2,7 +2,7 @@ package bean;
 
 import java.io.Serializable;
 
-public class ClassNum implements Serializable { // [ を { に修正
+public class ClassNum implements Serializable { 
 
 	/**
 	 * クラス名:class_num
@@ -22,7 +22,7 @@ public class ClassNum implements Serializable { // [ を { に修正
 		return school;
 	}
 
-	public void setSchool(School school) { // [ を { に修正
+	public void setSchool(School school) {
 		this.school = school;
 	}
 
