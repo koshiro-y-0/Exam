@@ -13,7 +13,7 @@
                 </div>
 
                 <div class="mt-4">
-                    <a href="SubjectList.action" class="btn btn-primary">戻る</a>
+                    <a href="SubjectCreate.action" class="btn btn-primary">続けて登録</a>
                     <a href="SubjectList.action" class="btn btn-secondary ms-2">科目一覧</a>
                 </div>
             </div>

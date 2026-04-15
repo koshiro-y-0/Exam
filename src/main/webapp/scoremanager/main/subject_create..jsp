@@ -19,22 +19,22 @@
                 </div>
             </c:if>
 
-            <form method="post" action="StudentCreateExecute.action" class="px-4">
+            <form method="post" action="SubjectCreateExecute.action" class="px-4">
             
             	<!-- ②、③ -->
                 <div class="mb-3 row">
                     <label for="cd" class="col-sm-3 col-form-label">科目コード</label><br>
 
                      <input type="text" class="form-control" id="cd" name="cd"
-                               value="${cd}" maxlength="20" placeholder="科目コードを入力してください"required>
+                               value="${cd}" maxlength="3" placeholder="科目コードを入力してください"required>
                 </div>
 
 
                 <%-- ④、⑤ --%>
                 <div class="mb-3 row">
                     <label for="name" class="col-sm-3 col-form-label">科目名</label><br>
-                     <input type="text" class="form-control" id="name" name="name"
-                               value="${name}" maxlength="20" placeholder="科目名を入力してください"required>
+                     <input type="text" class="form-control"  name="name"
+                               value="${name}" maxlength="30" placeholder="科目名を入力してください"required>
                 </div>
 
                 <%-- ボタン --%>
