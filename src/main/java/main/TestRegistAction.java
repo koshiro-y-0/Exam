@@ -26,7 +26,7 @@ public class TestRegistAction extends Action {
             response.sendRedirect(request.getContextPath()+ "/scoremanager/login.jsp");
             return;
         }
- 
+
         // 絞り込み
         String entYearStr = request.getParameter("f1");
         String classNum = request.getParameter("f2");
