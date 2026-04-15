@@ -41,10 +41,10 @@
                         <span class="nav-link text-muted">成績管理</span>
                         <ul class="nav flex-column ms-3">
                             <li>
-                                <a class="nav-link text-dark small" href="${ctx}/scoremanager/main/ScoreEntry.action">成績登録</a>
+                                <a class="nav-link text-dark small" href="${ctx}/scoremanager/main/TestRegist.action">成績登録</a>
                             </li>
                             <li>
-                                <a class="nav-link text-dark small" href="${ctx}/scoremanager/main/ScoreList.action">成績参照</a>
+								<a class="nav-link text-dark small" href="${ctx}/scoremanager/main/TestList.action">成績参照</a>
                             </li>
                         </ul>
                     </li>
