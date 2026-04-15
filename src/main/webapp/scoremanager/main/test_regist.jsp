@@ -12,7 +12,7 @@
             </div>
 
             <%-- 絞り込みフォーム --%>
-            <form method="get" action="SubjecttList.action">
+            <form method="get" action="SubjectList.action">
                 <div class="row border mx-3 mb-3 py-2 align-items-center rounded" id="filter">
 
                     <%-- 入学年度プルダウン --%>
