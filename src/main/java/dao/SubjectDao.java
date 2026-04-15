@@ -116,4 +116,52 @@ public class SubjectDao extends Dao {
 
         return list;
     }
+    
+    /**
+     * 科目情報を保存(存在すれば更新、無ければ新規登録)する
+     * 戻り値: 保存に成功すれば true
+     */
+    public boolean save(Subject subject) throws Exception {
+        Connection connection = getConnection();
+        PreparedStatement statement = null;
+        int count = 0;
+
+        try {
+            // まず同じ科目コード+学校コードが既に存在するか確認
+            Subject old = get(subject.getCd(), subject.getSchool());
+
+            if (old == null) {
+                // --- 新規登録(INSERT) ---
+                statement = connection.prepareStatement(
+                    "insert into subject (cd, school_cd, name) values (?, ?, ?)"
+                );
+                statement.setString(1, subject.getCd());
+                statement.setString(2, subject.getSchool().getCd());
+                statement.setString(3, subject.getName());
+            } else {
+                // --- 更新(UPDATE) ---
+                // ※科目コードと学校コードは複合主キーなので変更不可、name のみ更新
+                statement = connection.prepareStatement(
+                    "update subject set name = ? where cd = ? and school_cd = ?"
+                );
+                statement.setString(1, subject.getName());
+                statement.setString(2, subject.getCd());
+                statement.setString(3, subject.getSchool().getCd());
+            }
+
+            count = statement.executeUpdate();
+
+        } catch (Exception e) {
+            throw e;
+        } finally {
+            if (statement != null) {
+                try { statement.close(); } catch (SQLException sqle) { throw sqle; }
+            }
+            if (connection != null) {
+                try { connection.close(); } catch (SQLException sqle) { throw sqle; }
+            }
+        }
+
+        return count > 0;
+    }
 }
