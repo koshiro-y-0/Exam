@@ -27,7 +27,6 @@
 
                      <input type="text" class="form-control" id="cd" name="cd"
                                value="${cd}" maxlength="20" placeholder="科目コードを入力してください"required>
-
                 </div>
 
 
@@ -42,8 +41,7 @@
 
                  <button type="submit" class="btn btn-primary">登録</button><br>
                  
-                 <a href="StudentList.action" >戻る</a>
-
+                 <a href="SubjectList.action" >戻る</a>
 
             </form>
         </section>
