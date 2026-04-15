@@ -161,7 +161,6 @@ public class SubjectDao extends Dao {
                 try { connection.close(); } catch (SQLException sqle) { throw sqle; }
             }
         }
-
         return count > 0;
     }
 }
