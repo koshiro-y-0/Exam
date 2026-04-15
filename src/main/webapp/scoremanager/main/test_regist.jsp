@@ -59,7 +59,6 @@
                         </select>
                     </div>
                     
-
                     <%-- 絞込みボタン --%>
                     <div class="col-2 text-center">
                         <button class="btn btn-secondary" id="filter-button" type="submit">検索</button>
