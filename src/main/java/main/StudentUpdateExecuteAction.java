@@ -88,7 +88,7 @@ public class StudentUpdateExecuteAction extends Action {
             // --- 6. 完了画面へ ---
             request.getRequestDispatcher("student_update_done.jsp").forward(request, response);
         } else {
-            errors.put("system", "更新に失敗しました");
+            errors.put("system", "更新に失敗しました。");
             request.setAttribute("errors", errors);
             response.sendRedirect("StudentUpdate.action?no=" + no);
         }
