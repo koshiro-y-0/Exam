@@ -9,7 +9,7 @@
 
             <div class="px-4">
                 <div class="alert alert-success">
-                    <strong>更新が完了しました</strong>
+                    <strong>更新が完了しました。</strong>
                 </div>
 
                 <div class="mt-4">

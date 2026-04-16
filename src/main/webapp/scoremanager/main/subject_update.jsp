@@ -40,7 +40,7 @@
 
                  <button type="submit" class="btn btn-primary">変更</button><br>
                  
-                 <a href="SubjectList.action" >戻る</a>
+                 <a href="SubjectList.action" >戻る。</a>
 
             </form>
         </section>
