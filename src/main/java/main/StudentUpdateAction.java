@@ -54,7 +54,7 @@ public class StudentUpdateAction extends Action {
         try {
             classNumSet = cNumDao.filter(teacher.getSchool());
         } catch (Exception e) {
-            System.out.println("★クラス一覧の取得に失敗: " + e.getMessage());
+            System.out.println("★クラス一覧の取得に失敗。: " + e.getMessage());
         }
 
         // --- 5. リクエストにセット(JSPで初期値として表示するため) ---
