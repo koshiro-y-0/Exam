@@ -42,7 +42,7 @@
 
                  <button type="submit" class="btn btn-primary">登録</button><br>
                  
-                 <a href="StudentList.action" >戻る</a>
+                 <a href="SubjectList.action" >戻る</a>
 
 
             </form>
