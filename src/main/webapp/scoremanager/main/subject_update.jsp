@@ -11,7 +11,7 @@
 
     <c:param name="content"> 
 
-        <h2>科目変更</h2> 
+            <h2 class="h3 mb-3 fw-normal bg-secondary bg-opacity-10 py-2 px-4">科目情報更新</h2>
 
   
 
@@ -21,15 +21,12 @@
 
             <!-- 科目コード(変更不可) --> 
 
-            <div class="mb-3"> 
+			 <div class="mb-3"> 
+			    <label for="cd" class="col-sm-3 col-form-label">科目コード</label><br>
+			
+			    <input type="text" class="form-control" name="cd" value="${subject.cd}" readonly>
+			</div>
 
-                <label>科目コード</label> 
-
-                <input type="text" value="${subject.cd}" readonly> 
-
-                <input type="hidden" name="cd" value="${subject.cd}"> 
-
-            </div> 
 
   
 
@@ -37,17 +34,17 @@
 
             <div class="mb-3"> 
 
-                <label>科目名</label> 
+                <label for="name" class="col-sm-3 col-form-label">科目コード</label><br>
 
-                <input type="text" name="name" value="${subject.name}" 
+				<input type="text" class="form-control"  name="name"
+                               value="${subject.name}" maxlength="30" placeholder="科目名を入力してください"required>
 
-                       maxlength="30" required> 
 
             </div> 
 
   
 
-            <button type="submit" class="btn btn-primary">更新</button> 
+            <button type="submit" class="btn btn-primary">更新</button>
 
             <a href="SubjectList.action" class="btn btn-secondary">キャンセル</a> 
 
