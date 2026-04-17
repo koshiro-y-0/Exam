@@ -10,7 +10,7 @@
  			<%-- ===== 成績変更フォーム ===== --%>
             <form method="get" action="TestUpdate.action">
 
-                <%--点数--%>
+                <%--点数入力欄--%>
                 <div class="mb-3"> 
                     
 	                <label class="form-label" for="test-f2-select">点数</label>
