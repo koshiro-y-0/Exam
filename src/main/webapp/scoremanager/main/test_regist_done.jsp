@@ -13,8 +13,8 @@
                 </div>
 
                 <div class="mt-4">
-                    <a href="" class="btn btn-primary">戻る</a>
-                    <a href="" class="btn btn-secondary ms-2">成績一覧</a>
+                    <a href="TestRegist.action" class="btn btn-primary">戻る</a>
+                    <a href="TestList.action" class="btn btn-secondary ms-2">成績参照</a>
                 </div>
             </div>
         </section>
