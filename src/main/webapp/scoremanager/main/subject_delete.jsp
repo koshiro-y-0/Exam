@@ -36,7 +36,7 @@
 
             <button type="submit" class="btn btn-danger">削除する</button> 
 
-            <a href="SubjectList.action" class="btn btn-secondary">キャンセル。</a> 
+            <a href="SubjectList.action" class="btn btn-secondary">キャンセル</a> 
 
         </form> 
 
