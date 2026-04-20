@@ -73,7 +73,7 @@
           				<input type = "text" name = "no"placeholder="学生番号を入力してください。">
                     </div>
 
-                    <%-- 絞込みボタン --%>
+                    <%-- 検索ボタン --%>
                     <div class="col-2 text-center">
                         <button class="btn btn-secondary" id="filter-button" type="submit">検索</button>
                     </div>
