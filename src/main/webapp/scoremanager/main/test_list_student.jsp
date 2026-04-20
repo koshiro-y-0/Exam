@@ -8,6 +8,7 @@
             <h2 class="h3 mb-3 fw-normal bg-secondary bg-opacity-10 py-2 px-4">成績一覧(学生)</h2>
 
             <%-- 絞り込みフォーム --%>
+            <%-------- 科目情報 ----------%>
             <form method="get" action="TestListSubject.action">
                 <div class="row border mx-3 mb-3 py-2 align-items-center rounded" id="filter">
                 
@@ -58,6 +59,7 @@
                 </div>
              </form>
              
+             <%-------- 学生情報 ----------%>
              <form method="get" action="TestListStudent.action">
              
                  <div class="row border mx-3 mb-3 py-2 align-items-center rounded" id="filter">
