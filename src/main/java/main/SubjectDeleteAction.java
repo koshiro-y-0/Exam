@@ -23,7 +23,7 @@ public class SubjectDeleteAction extends Action {
   
 
         // ログインチェック(写経) 
-
+    	
         HttpSession session = request.getSession(); 
 
         Teacher teacher = (Teacher) session.getAttribute("user"); 

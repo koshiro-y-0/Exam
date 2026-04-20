@@ -6,7 +6,7 @@
 
 <c:import url="/common/base.jsp"> 
 
-    <c:param name="title">科目削除完了</c:param> 
+    <c:param name="title">科目削除完了。</c:param> 
 
     <c:param name="content"> 
 

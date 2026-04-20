@@ -20,7 +20,7 @@ public class SubjectDeleteExecuteAction extends Action {
                         HttpServletResponse response) throws Exception { 
 
   
-
+    	 
         HttpSession session = request.getSession(); 
 
         Teacher teacher = (Teacher) session.getAttribute("user"); 
