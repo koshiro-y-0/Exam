@@ -19,7 +19,7 @@
                 </div>
             </c:if>
 
-            <form method="post" action="StudentCreateExecute.action" class="px-4">
+            <form method="post" action="SubjectCreateExecute.action" class="px-4">
             
             	<!-- ②、③ -->
                 <div class="mb-3 row">

@@ -163,4 +163,55 @@ public class SubjectDao extends Dao {
         }
         return count > 0;
     }
+    
+    /** 
+
+     * 科目を削除する 
+
+     * 複合キー: 科目コード(cd) + 学校コード(school_cd) 
+
+     */ 
+
+    public boolean delete(String cd, School school) throws Exception { 
+
+        Connection connection = getConnection(); 
+
+        PreparedStatement statement = null; 
+
+        int count = 0; 
+
+      
+
+        try { 
+
+            statement = connection.prepareStatement( 
+
+                "delete from subject where cd = ? and school_cd = ?" );
+
+            statement.setString(1, cd); 
+
+            statement.setString(2, school.getCd()); 
+
+      
+
+            count = statement.executeUpdate(); 
+
+      
+
+        } finally { 
+
+            if (statement != null) try { statement.close(); } catch (SQLException e) {} 
+
+            if (connection != null) try { connection.close(); } catch (SQLException e) {} 
+
+        } 
+
+      
+
+        return count > 0; 
+
+    } 
+    
+    
+    
 }
