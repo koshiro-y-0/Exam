@@ -70,7 +70,7 @@
                		<%-- 入学年度プルダウン --%>
                     <div class="col-2">
                         <label class="form-label" for="student-f1-select">学生番号</label>
-          				<input type = "text" name = "no"placeholder="学生番号を入力してください">
+          				<input type = "text" name = "no"placeholder="学生番号を入力してください。">
                     </div>
 
                     <%-- 絞込みボタン --%>
