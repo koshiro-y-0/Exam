@@ -87,7 +87,7 @@
                     <input type="hidden" name="f3" value="${f3}">
                     <input type="hidden" name="f4" value="${f4}">
 
-                    <%-- ★②〜⑫ テーブル(設計書通りの5列) --%>
+                    <%-- ②〜⑫ テーブル(設計書通りの5列) --%>
                     <table class="table table-striped">
                         <thead>
                             <tr>
