@@ -6,7 +6,18 @@
     <c:param name="content">
         <section class="container mt-4">
             <h2 class="h3 mb-3 fw-normal bg-secondary bg-opacity-10 py-2 px-4">成績管理</h2>
-
+			
+			<%-- エラーメッセージまとめ表示 --%>
+            <c:if test="${not empty errors}">
+                <div class="alert alert-danger mx-3">
+                    <ul class="mb-0 ps-3">
+                        <c:forEach var="error" items="${errors}">
+                            <li>${error.value}</li>
+                        </c:forEach>
+                    </ul>
+                </div>
+            </c:if>
+            
             <%-- ===== 絞り込みフォーム ===== --%>
             <form method="get" action="TestRegist.action">
                 <div class="row border mx-3 mb-3 py-2 align-items-center rounded" id="filter">
