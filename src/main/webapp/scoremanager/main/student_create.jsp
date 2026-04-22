@@ -2,10 +2,10 @@
 <%@ taglib prefix="c" uri="jakarta.tags.core" %>
 
 <c:import url="/common/base.jsp">
-    <c:param name="title">科目登録</c:param>
+    <c:param name="title">学生登録</c:param>
     <c:param name="content">
         <section class="container mt-4">
-            <h2 class="h3 mb-3 fw-normal bg-secondary bg-opacity-10 py-2 px-4">科目情報登録</h2>
+            <h2 class="h3 mb-3 fw-normal bg-secondary bg-opacity-10 py-2 px-4">学生情報登録</h2>
 
             <%-- エラーメッセージまとめ表示 --%>
             <c:if test="${not empty errors}">
@@ -71,7 +71,7 @@
                 <div class="row mt-4">
                     <div class="col-sm-9 offset-sm-3">
                         <button type="submit" class="btn btn-primary">登録して終了</button>
-                        <a href="StudentList.action" class="btn btn-secondary ms-2">キャンセル</a>
+                        <a href="StudentList.action" class="btn btn-secondary ms-2">戻る</a>
                     </div>
                 </div>
 
