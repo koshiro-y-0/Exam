@@ -25,6 +25,7 @@ public class LoginExecuteAction extends Action {
 
         if (teacher != null) {
             // --- 3. 認証成功: セッションに教員情報を保存 ---
+        	teacher.setAuthenticated(true);
             HttpSession session = request.getSession();
             session.setAttribute("user", teacher);
 
