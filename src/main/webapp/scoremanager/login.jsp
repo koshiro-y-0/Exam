@@ -6,7 +6,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ログイン | 得点管理システム</title>
-    <%-- Bootstrap 5 CSS --%>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
 </head>
 <body class="bg-light">
@@ -20,28 +19,23 @@
 
         <%-- ログインフォーム --%>
         <div class="card shadow-sm">
-            <%-- ① 画面タイトル --%>
             <div class="card-header bg-white text-center py-3">
                 <h2 class="h4 mb-0 fw-bold">ログイン</h2>
             </div>
 
             <div class="card-body p-4">
 
-                <%-- 認証エラーメッセージ(エラー時のみ表示) --%>
+                <%-- 認証エラーメッセージ --%>
                 <c:if test="${not empty errors}">
-                    <div class="alert alert-danger">
-                        <ul class="mb-0 ps-3">
-                            <c:forEach var="error" items="${errors}">
-                                <li>${error.value}</li>
-                            </c:forEach>
-                        </ul>
-                    </div>
-                </c:if>
-
+				    <div class="alert alert-danger">
+				        ${errors.login}
+				    </div>
+				</c:if>
                 <form method="post" action="LoginExecute.action">
 
-                    <%-- ② ログインID --%>
-                    <div class="form-floating mb-3">
+                    <%-- ② ID入力欄 --%>
+                    <div class="mb-3">
+                        <label for="login-id" class="form-label">ＩＤ</label>
                         <input type="text"
                                class="form-control"
                                id="login-id"
@@ -49,23 +43,24 @@
                                placeholder="半角でご入力ください"
                                value="${id}"
                                maxlength="10"
+                               style="ime-mode: disabled;"
                                required>
-                        <label for="login-id">ＩＤ</label>
                     </div>
 
-                    <%-- ③ パスワード --%>
-                    <div class="form-floating mb-3">
+                    <%-- ③ パスワード入力欄 --%>
+                    <div class="mb-3">
+                        <label for="login-password" class="form-label">パスワード</label>
                         <input type="password"
                                class="form-control"
                                id="login-password"
                                name="password"
                                placeholder="30文字以内の半角英数字でご入力ください"
                                maxlength="30"
+                               style="ime-mode: disabled;"
                                required>
-                        <label for="login-password">パスワード</label>
                     </div>
 
-                    <%-- ④⑤ パスワード表示/非表示チェックボックス --%>
+                    <%-- ④⑤ パスワード表示チェックボックス --%>
                     <div class="form-check text-end mb-3">
                         <input type="checkbox"
                                class="form-check-input"
