@@ -67,7 +67,7 @@
                                 <th>学生番号</th>
                                 <th>氏名</th>
                                 <th>クラス</th>
-                                <th>在学</th>
+                                <th>在学中</th>
                                 <th></th>
                             </tr>
                         </thead>
