@@ -7,15 +7,16 @@
         <section class="container mt-4">
             <h2 class="h3 mb-3 fw-normal bg-secondary bg-opacity-10 py-2 px-4">成績参照</h2>
 
-            <%-- 絞り込みフォーム --%>
+                        <%-- ===== 科目情報フォーム ===== --%>
             <form method="get" action="TestListSubject.action">
-                <div class="row border mx-3 mb-3 py-2 align-items-center rounded" id="filter">
-                
-                	<div class="col-1">
-                		<p style="text-align: left">科目情報</p>
-                	</div>
-					
-                    <%-- 入学年度プルダウン --%>
+                <div class="row g-2 border mx-3 mb-3 py-3 align-items-end rounded" id="filter">
+
+                    <%-- グループ見出し：縦方向は中央寄せ、列は行と同じ高さにストレッチ --%>
+                    <div class="col-2 d-flex align-items-center align-self-stretch">
+                        <span class="fw-semibold text-nowrap">科目情報</span>
+                    </div>
+
+                    <%-- 入学年度 --%>
                     <div class="col-2">
                         <label class="form-label" for="student-f1-select">入学年度</label>
                         <select class="form-select" id="student-f1-select" name="f1">
@@ -26,7 +27,7 @@
                         </select>
                     </div>
 
-                    <%-- クラスプルダウン --%>
+                    <%-- クラス --%>
                     <div class="col-2">
                         <label class="form-label" for="student-f2-select">クラス</label>
                         <select class="form-select" id="student-f2-select" name="f2">
@@ -37,10 +38,10 @@
                         </select>
                     </div>
 
-                  <%-- 科目プルダウン --%>
+                    <%-- 科目 (★ name を f3 に修正) --%>
                     <div class="col-3">
                         <label class="form-label" for="student-f3-select">科目</label>
-                        <select class="form-select" id="student-f3-select" name="f2">
+                        <select class="form-select" id="student-f3-select" name="f3">
                             <option value="0">--------</option>
                             <c:forEach var="sub" items="${subject_set}">
                                 <option value="${sub.cd}" <c:if test="${sub.cd == f3}">selected</c:if>>${sub.name}</option>
@@ -48,42 +49,42 @@
                         </select>
                     </div>
 
-                    <%-- 絞込みボタン --%>
-                    <div class="col-2 text-center">
-                        <button class="btn btn-secondary" id="filter-button" type="submit">検索</button>
+                    <%-- 検索ボタン（右寄せ・下揃え） --%>
+                    <div class="col-auto ms-auto">
+                        <button class="btn btn-secondary text-nowrap px-4" id="filter-button" type="submit">検索</button>
                     </div>
-
-                    <%-- エラーメッセージ --%>
-                    <div class="mt-2 text-warning">${errors.f1}</div>
                 </div>
-             </form>
-             
-             <form method="get" action="TestListStudent.action">
-             
-                 <div class="row border mx-3 mb-3 py-2 align-items-center rounded" id="filter">
-                
-                	<div class="col-1">
-                		<p style="text-align: left">学生情報</p>
-                	</div>
-					
-                    <%-- 入学年度プルダウン --%>
-                    <div class="col-2">
-                        <label class="form-label" for="student-f1-select">学生番号</label>
-          				<input type = "text" name = "no"placeholder="学生番号を入力してください">
+
+                <%-- エラーメッセージはフォームの外／下に出す --%>
+                <c:if test="${not empty errors.f1}">
+                    <div class="mx-3 mb-2 text-warning">${errors.f1}</div>
+                </c:if>
+            </form>
+
+            <%-- ===== 学生情報フォーム ===== --%>
+            <form method="get" action="TestListStudent.action">
+                <div class="row g-2 border mx-3 mb-3 py-3 align-items-end rounded" id="filter2">
+
+                    <%-- グループ見出し --%>
+                    <div class="col-2 d-flex align-items-center align-self-stretch">
+                        <span class="fw-semibold text-nowrap">学生情報</span>
                     </div>
 
-                    <%-- 絞込みボタン --%>
-                    <div class="col-2 text-center">
-                        <button class="btn btn-secondary" id="filter-button" type="submit">検索</button>
+                    <%-- 学生番号 --%>
+                    <div class="col-4">
+                        <label class="form-label" for="student-no-input">学生番号</label>
+                        <input type="text" id="student-no-input" name="no"
+                               class="form-control" placeholder="学生番号を入力してください">
                     </div>
 
-                    <%-- エラーメッセージ --%>
-                    <div class="mt-2 text-warning">${errors.f1}</div>
+                    <%-- 検索ボタン --%>
+                    <div class="col-auto ms-auto">
+                        <button class="btn btn-secondary text-nowrap px-4" type="submit">検索</button>
+                    </div>
                 </div>
             </form>
 
-
-            <label><p><font color="blue">科目情報を選択または学生情報を入力して検索ボタンをクリックしてください</p></font></label>
+            <p class="mx-3 text-primary">科目情報を選択または学生情報を入力して検索ボタンをクリックしてください</p>
 
         </section>
     </c:param>

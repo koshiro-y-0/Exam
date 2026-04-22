@@ -40,9 +40,9 @@
                             </c:forEach>
                         </select>
                     </div>
-                    <div class="col-1 align-self-end">
-                        <button type="submit" class="btn btn-secondary">検索</button>
-                    </div>
+                    <div class="col-auto align-self-end ms-auto">
+					    <button type="submit" class="btn btn-secondary text-nowrap px-4">検索</button>
+					</div>
                 </div>
             </form>
 
@@ -57,9 +57,9 @@
                         <input type="text" class="form-control" name="no"
                                placeholder="学生番号を入力してください" maxlength="8">
                     </div>
-                    <div class="col-1 align-self-end">
-                        <button type="submit" class="btn btn-secondary">検索</button>
-                    </div>
+                    <div class="col-auto align-self-end ms-auto">
+					    <button type="submit" class="btn btn-secondary text-nowrap px-4">検索</button>
+					</div>
                 </div>
             </form>
 

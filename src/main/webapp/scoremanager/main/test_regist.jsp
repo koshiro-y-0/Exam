@@ -68,7 +68,7 @@
 
                     <%-- 検索ボタン --%>
                     <div class="col-1 text-center align-self-end">
-                        <button class="btn btn-secondary" type="submit">検索</button>
+                       <button class="btn btn-secondary text-nowrap" id="filter-button" type="submit">検索</button>
                     </div>
                 </div>
             </form>
