@@ -2,10 +2,10 @@
 <%@ taglib prefix="c" uri="jakarta.tags.core" %>
 
 <c:import url="/common/base.jsp">
-    <c:param name="title">学生変更</c:param>
+    <c:param name="title">学生情報変更</c:param>
     <c:param name="content">
         <section class="container mt-4">
-            <h2 class="h3 mb-3 fw-normal bg-secondary bg-opacity-10 py-2 px-4">学生変更</h2>
+            <h2 class="h3 mb-3 fw-normal bg-secondary bg-opacity-10 py-2 px-4">学生情報変更</h2>
 
             <%-- エラーメッセージまとめ表示 --%>
             <c:if test="${not empty errors}">
@@ -79,7 +79,7 @@
                 <div class="row mt-4">
                     <div class="col-sm-9 offset-sm-3">
                         <button type="submit" class="btn btn-primary">変更</button>
-                        <a href="StudentList.action" class="btn btn-secondary ms-2">キャンセル</a>
+                        <a href="StudentList.action" class="btn btn-secondary ms-2">戻る</a>
                     </div>
                 </div>
 
