@@ -41,8 +41,8 @@
                         </select>
                     </div>
                     <div class="col-auto align-self-end ms-auto">
-					    <button type="submit" class="btn btn-secondary text-nowrap px-4">検索</button>
-					</div>
+                        <button type="submit" class="btn btn-secondary text-nowrap px-4">検索</button>
+                    </div>
                 </div>
             </form>
 
@@ -58,8 +58,8 @@
                                placeholder="学生番号を入力してください" maxlength="8">
                     </div>
                     <div class="col-auto align-self-end ms-auto">
-					    <button type="submit" class="btn btn-secondary text-nowrap px-4">検索</button>
-					</div>
+                        <button type="submit" class="btn btn-secondary text-nowrap px-4">検索</button>
+                    </div>
                 </div>
             </form>
 
@@ -76,16 +76,22 @@
                                         <th>学生番号</th>
                                         <th>氏名</th>
                                         <th>点数</th>
+                                        <th></th><%-- ★追加 --%>
                                     </tr>
                                 </thead>
                                 <tbody>
                                     <c:forEach var="t" items="${tests}">
-                                        <tr>
-                                            <td>${t.student.no}</td>
-                                            <td>${t.student.name}</td>
-                                            <td>${t.point}</td>
-                                        </tr>
-                                    </c:forEach>
+									    <tr>
+									        <td>${t.student.no}</td>
+									        <td>${t.student.name}</td>
+									        <td>${t.point}</td>
+									        <td>
+									            <a href="TestDelete.action?student_no=${t.student.no}&subject_cd=${t.subject.cd}&no=${t.no}">
+									                削除
+									            </a>
+									        </td>
+									    </tr>
+									</c:forEach>
                                 </tbody>
                             </table>
                         </c:when>

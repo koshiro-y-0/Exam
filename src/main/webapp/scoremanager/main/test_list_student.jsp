@@ -79,21 +79,27 @@
                         <c:when test="${not empty tests}">
                             <table class="table table-striped">
                                 <thead>
-                                    <tr>
-                                        <th>科目名</th>
-                                        <th>回数</th>
-                                        <th>点数</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <c:forEach var="t" items="${tests}">
-                                        <tr>
-                                            <td>${t.subject.name}</td>
-                                            <td>${t.no}</td>
-                                            <td>${t.point}</td>
-                                        </tr>
-                                    </c:forEach>
-                                </tbody>
+								    <tr>
+								        <th>科目名</th>
+								        <th>回数</th>
+								        <th>点数</th>
+								        <th></th>
+								    </tr>
+								</thead>
+								<tbody>
+								    <c:forEach var="t" items="${tests}">
+								        <tr>
+								            <td>${t.subject.name}</td>
+								            <td>${t.no}</td>
+								            <td>${t.point}</td>
+								            <td>
+								                <a href="TestDelete.action?student_no=${t.student.no}&subject_cd=${t.subject.cd}&no=${t.no}">
+								                    削除
+								                </a>
+								            </td>
+								        </tr>
+								    </c:forEach>
+								</tbody>
                             </table>
                         </c:when>
                         <c:otherwise>

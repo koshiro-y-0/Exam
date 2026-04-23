@@ -189,4 +189,31 @@ public class TestDao extends Dao {
         }
         return list;
     }
+    
+    /**
+     * 成績を1件削除する(複合キー: 学生番号+科目+学校+回数)
+     */
+    public boolean delete(Student student, Subject subject, School school, int no) throws Exception {
+        Connection con = getConnection();
+        PreparedStatement st = null;
+        int count = 0;
+
+        try {
+            st = con.prepareStatement(
+                "delete from test where student_no=? and subject_cd=? and school_cd=? and no=?"
+            );
+            st.setString(1, student.getNo());
+            st.setString(2, subject.getCd());
+            st.setString(3, school.getCd());
+            st.setInt(4, no);
+
+            count = st.executeUpdate();
+
+        } finally {
+            if (st != null) try { st.close(); } catch (SQLException e) {}
+            if (con != null) try { con.close(); } catch (SQLException e) {}
+        }
+
+        return count > 0;
+    }
 }
