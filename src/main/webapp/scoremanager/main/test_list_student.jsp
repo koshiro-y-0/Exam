@@ -68,44 +68,55 @@
 
             <%-- 学生番号が存在しない場合のエラーメッセージ --%>
             <c:if test="${not empty error_msg}">
-                <div class="alert alert-warning mx-3">${error_msg}</div>
-            </c:if>
+			    <div class="px-4">
+			        <p>氏名：（${search_no}）</p>
+			        <p>成績情報が存在しませんでした</p>
+			    </div>
+			</c:if>
 
             <%-- ===== 検索結果 ===== --%>
             <c:if test="${not empty student}">
                 <div class="px-4">
 
-                    <%-- ★修正: 学生名は成績あり/なしに関わらず常に表示 --%>
-                    <p>氏名：${student.name}（${student.no}）</p>
-
                     <c:choose>
-                        <c:when test="${not empty tests}">
-                            <table class="table table-striped">
-                                <thead>
-                                    <tr>
-                                        <th>科目名</th>
-                                        <th>科目コード</th>
-                                        <th>回数</th>
-                                        <th>点数</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <c:forEach var="t" items="${tests}">
-                                        <tr>
-                                            <td>${t.subject.name}</td>
-                                            <td>${t.subject.cd}</td>
-                                            <td>${t.no}</td>
-                                            <td>${t.point}</td>
-                                        </tr>
-                                    </c:forEach>
-                                </tbody>
-                            </table>
-                        </c:when>
-                        <c:otherwise>
-                            <%-- ★修正: 設計書通りのメッセージ --%>
-                            <p>成績情報が存在しませんでした</p>
-                        </c:otherwise>
-                    </c:choose>
+					    <%-- 学生情報が取得できた場合 --%>
+					    <c:when test="${not empty student}">
+					        <p>氏名：${student.name}（${student.no}）</p>
+					
+					        <c:choose>
+					            <c:when test="${not empty tests}">
+					                <table class="table table-striped">
+					                    <thead>
+					                        <tr>
+					                            <th>科目名</th>
+					                            <th>科目コード</th>
+					                            <th>回数</th>
+					                            <th>点数</th>
+					                        </tr>
+					                    </thead>
+					                    <tbody>
+					                        <c:forEach var="t" items="${tests}">
+					                            <tr>
+					                                <td>${t.subject.name}</td>
+					                                <td>${t.subject.cd}</td>
+					                                <td>${t.no}</td>
+					                                <td>${t.point}</td>
+					                            </tr>
+					                        </c:forEach>
+					                    </tbody>
+					                </table>
+					            </c:when>
+					            <c:otherwise>
+					                <p>成績情報が存在しませんでした</p>
+					            </c:otherwise>
+					        </c:choose>
+					    </c:when>
+					
+					    <%-- 学生情報が取得できなかった（存在しない番号等）の場合 --%>
+					    <c:when test="${not empty error_msg}">
+					        <p class="text-danger">${error_msg}</p>
+					    </c:when>
+					</c:choose>
                 </div>
             </c:if>
 
