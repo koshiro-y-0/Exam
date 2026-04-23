@@ -216,4 +216,52 @@ public class TestDao extends Dao {
 
         return count > 0;
     }
+    
+    /**
+     * 科目別参照用: 入学年度・クラス・科目で絞り込み(回数指定なし・全回数取得)
+     */
+    public List<Test> filterBySubject(int entYear, String classNum,
+                                       Subject subject, School school) throws Exception {
+        List<Test> list = new ArrayList<>();
+        Connection con = getConnection();
+        PreparedStatement st = null;
+        ResultSet rs = null;
+        try {
+            st = con.prepareStatement(
+                "select t.*, s.name as student_name, s.ent_year as s_ent_year, " +
+                "s.class_num as s_class_num " +
+                "from test t join student s on t.student_no = s.no " +
+                "where s.ent_year=? and s.class_num=? " +
+                "and t.subject_cd=? and t.school_cd=? " +
+                "order by t.student_no asc, t.no asc"
+            );
+            st.setInt(1, entYear);
+            st.setString(2, classNum);
+            st.setString(3, subject.getCd());
+            st.setString(4, school.getCd());
+            rs = st.executeQuery();
+
+            while (rs.next()) {
+                Test test = new Test();
+                Student student = new Student();
+                student.setNo(rs.getString("student_no"));
+                student.setName(rs.getString("student_name"));
+                student.setEntYear(rs.getInt("s_ent_year"));
+                student.setClassNum(rs.getString("s_class_num"));
+                student.setSchool(school);
+                test.setStudent(student);
+                test.setSubject(subject);
+                test.setSchool(school);
+                test.setNo(rs.getInt("no"));
+                test.setPoint(rs.getInt("point"));
+                test.setClassNum(rs.getString("class_num"));
+                list.add(test);
+            }
+        } finally {
+            if (rs != null) try { rs.close(); } catch (SQLException e) {}
+            if (st != null) try { st.close(); } catch (SQLException e) {}
+            if (con != null) try { con.close(); } catch (SQLException e) {}
+        }
+        return list;
+    }
 }

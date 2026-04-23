@@ -31,12 +31,10 @@ public class TestListStudentAction extends Action {
             return;
         }
 
-        // ===== ★追加: プルダウン用データ(科目情報の検索フォーム用) =====
+        // ===== プルダウン用データ =====
         int year = LocalDate.now().getYear();
         List<Integer> entYearSet = new ArrayList<>();
-        for (int i = year - 10; i <= year + 1; i++) {
-            entYearSet.add(i);
-        }
+        for (int i = year - 10; i <= year + 1; i++) entYearSet.add(i);
 
         ClassNumDao cDao = new ClassNumDao();
         List<String> classNumSet = new ArrayList<>();
@@ -54,12 +52,12 @@ public class TestListStudentAction extends Action {
         String studentNo = request.getParameter("no");
 
         if (studentNo != null && !studentNo.isEmpty()) {
-            // 学生情報を取得
+
             StudentDao sDao = new StudentDao();
             Student student = sDao.get(studentNo);
 
             if (student != null) {
-                // 成績リストを取得
+                // ★シンプルに全テスト結果をリストで取得するだけ
                 TestDao tDao = new TestDao();
                 List<Test> tests = tDao.filter(student);
 
@@ -69,12 +67,13 @@ public class TestListStudentAction extends Action {
                 System.out.println("★デバッグ: 学生=" + student.getName()
                     + " 成績件数=" + tests.size());
             } else {
-                System.out.println("★デバッグ: 学生番号 " + studentNo + " が見つかりません");
-                request.setAttribute("error_msg", "学生番号 " + studentNo + " は存在しません");
+                request.setAttribute("error_msg",
+                    "学生番号 " + studentNo + " は存在しません");
             }
+
+            request.setAttribute("search_no", studentNo);
         }
 
-        // ★JSPへフォワード(リダイレクトではない)
         request.getRequestDispatcher("test_list_student.jsp")
                .forward(request, response);
     }

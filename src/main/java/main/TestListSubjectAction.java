@@ -2,8 +2,13 @@ package main;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
+import java.util.LinkedHashMap;
 import java.util.List;
+import java.util.Map;
+import java.util.TreeMap;
+import java.util.TreeSet;
 
+import bean.Student;
 import bean.Subject;
 import bean.Teacher;
 import bean.Test;
@@ -29,12 +34,10 @@ public class TestListSubjectAction extends Action {
             return;
         }
 
-        // ===== ★追加: プルダウン用データ =====
+        // ===== プルダウン用データ =====
         int year = LocalDate.now().getYear();
         List<Integer> entYearSet = new ArrayList<>();
-        for (int i = year - 10; i <= year + 1; i++) {
-            entYearSet.add(i);
-        }
+        for (int i = year - 10; i <= year + 1; i++) entYearSet.add(i);
 
         ClassNumDao cDao = new ClassNumDao();
         List<String> classNumSet = new ArrayList<>();
@@ -62,17 +65,40 @@ public class TestListSubjectAction extends Action {
 
             if (subject != null) {
                 TestDao tDao = new TestDao();
-                // ★回数は全回数を取得(回数指定なし)
-                List<Test> tests = tDao.filter(entYear, f2, subject, 1, teacher.getSchool());
 
-                request.setAttribute("tests", tests);
+                // 全回数のデータを取得
+                List<Test> allTests = tDao.filterBySubject(entYear, f2, subject, teacher.getSchool());
+
+                // ピボット形式に整形
+                // studentNo → (no → point) のマップ
+                Map<String, Map<Integer, Integer>> pointMap = new LinkedHashMap<>();
+                // studentNo → Student オブジェクト
+                Map<String, Student> studentMap = new LinkedHashMap<>();
+                // 存在する回数の一覧(1回, 2回...)
+                TreeSet<Integer> noSet = new TreeSet<>();
+
+                for (Test t : allTests) {
+                    String studentNo = t.getStudent().getNo();
+                    studentMap.put(studentNo, t.getStudent());
+                    noSet.add(t.getNo());
+
+                    if (!pointMap.containsKey(studentNo)) {
+                        pointMap.put(studentNo, new TreeMap<>());
+                    }
+                    pointMap.get(studentNo).put(t.getNo(), t.getPoint());
+                }
+
                 request.setAttribute("subject", subject);
+                request.setAttribute("student_map", studentMap);
+                request.setAttribute("point_map", pointMap);
+                request.setAttribute("no_set", new ArrayList<>(noSet));
 
                 System.out.println("★デバッグ: 科目=" + subject.getName()
-                    + " 成績件数=" + tests.size());
+                    + " 学生数=" + studentMap.size()
+                    + " 回数=" + noSet);
             }
 
-            request.setAttribute("f1", entYear);
+            request.setAttribute("f1", Integer.parseInt(f1));
             request.setAttribute("f2", f2);
             request.setAttribute("f3", f3);
         }
