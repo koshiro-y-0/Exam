@@ -2,15 +2,15 @@
 <%@ taglib prefix="c" uri="jakarta.tags.core" %>
 
 <c:import url="/common/base.jsp">
-    <c:param name="title">成績登録完了</c:param>
+    <c:param name="title">成績管理</c:param>
     <c:param name="content">
         <section class="container mt-4">
-            <h2 class="h3 mb-3 fw-normal bg-secondary bg-opacity-10 py-2 px-4">成績登録完了</h2>
+            <h2 class="h3 mb-3 fw-normal bg-secondary bg-opacity-10 py-2 px-4">成績管理</h2>
 
             <div class="px-4">
-                <div class="alert alert-success">
-                    <strong>登録が完了しました</strong>
-                </div>
+                <p class="alert alert-success">
+				    <label>登録が完了しました</label>
+				</p>
 
                 <div class="mt-4">
                     <a href="TestRegist.action" class="btn btn-primary">戻る</a>
