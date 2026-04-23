@@ -2,10 +2,10 @@
 <%@ taglib prefix="c" uri="jakarta.tags.core" %>
 
 <c:import url="/common/base.jsp">
-    <c:param name="title">学生変更完了</c:param>
+    <c:param name="title">学生情報変更</c:param>
     <c:param name="content">
         <section class="container mt-4">
-            <h2 class="h3 mb-3 fw-normal bg-secondary bg-opacity-10 py-2 px-4">学生変更完了</h2>
+            <h2 class="h3 mb-3 fw-normal bg-secondary bg-opacity-10 py-2 px-4">学生情報変更</h2>
 
             <div class="px-4">
                 <div class="alert alert-success">
