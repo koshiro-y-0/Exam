@@ -10,33 +10,21 @@
 
     <c:param name="content"> 
 
-        <h2>科目削除</h2> 
+        <h2 class="h3 mb-3 fw-normal bg-secondary bg-opacity-10 py-2 px-4">科目情報削除</h2> 
 
-        <div class="alert alert-warning"> 
-
-            以下の科目を削除します。よろしいですか? 
-
-        </div> 
-
+        
+        <p>「${subject.name}(${subject.cd})」を削除してもよろしいですか</p>
   
 
-        <table class="table"> 
-
-            <tr><th>科目コード</th><td>${subject.cd}</td></tr> 
-
-            <tr><th>科目名</th><td>${subject.name}</td></tr> 
-
-        </table> 
-
-  
+        
 
         <form method="post" action="SubjectDeleteExecute.action"> 
 
             <input type="hidden" name="cd" value="${subject.cd}"> 
 
-            <button type="submit" class="btn btn-danger">削除する</button> 
+            <button type="submit" class="btn btn-danger">削除する</button> <br>
 
-            <a href="SubjectList.action" class="btn btn-secondary">キャンセル</a> 
+            <a href="SubjectList.action">キャンセル</a> 
 
         </form> 
 
