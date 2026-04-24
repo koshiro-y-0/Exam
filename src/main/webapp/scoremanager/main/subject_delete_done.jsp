@@ -14,7 +14,7 @@
 
         <div class="alert alert-success">削除が完了しました</div> 
 
-        <a href="SubjectList.action">一覧へ戻る</a> 
+        <a href="SubjectList.action">一覧へ戻る。</a> 
 
     </c:param> 
 
