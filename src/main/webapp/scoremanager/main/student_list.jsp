@@ -76,7 +76,7 @@
                                 <tr>
                                     <td>${s.entYear}</td>
                                     <td>${s.no}</td>
-                                    <td>${s.name}</td>
+                                    <td><a href="StudentAnalysis.action?no=${s.no}">${s.name}</a></td>
                                     <td>${s.classNum}</td>
                                     <td>${s.attend ? "○" : "×"}</td>
                                     <td><a href="StudentUpdate.action?no=${s.no}">変更</a></td>

@@ -33,6 +33,8 @@ public class Student implements Serializable { // [ を { に修正
 	 * 学校 : school
 	 */
 	private School school;
+	
+	private String lineUserId;
 
 	/**
 	 * ゲッタ・セッタ
@@ -83,5 +85,14 @@ public class Student implements Serializable { // [ を { に修正
 
 	public void setSchool(School school) {
 		this.school = school;
+	}
+	
+	//////LINE ユーザーID
+	public String getLineUserId() {
+	 return lineUserId;
+	}
+	
+	public void setLineUserId(String lineUserId) {
+	 this.lineUserId = lineUserId;
 	}
 }

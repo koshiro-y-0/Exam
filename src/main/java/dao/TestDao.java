@@ -264,4 +264,38 @@ public class TestDao extends Dao {
         }
         return list;
     }
+    
+    // ----- 拡張機能 -----
+    /**
+     * 偏差値計算用: 同じ科目・回数・クラスの全員の点数を取得する
+     */
+    public List<Integer> getClassPoints(Subject subject, int no,
+                                         String classNum, School school) throws Exception {
+        List<Integer> points = new ArrayList<>();
+        Connection con = getConnection();
+        PreparedStatement st = null;
+        ResultSet rs = null;
+        try {
+            st = con.prepareStatement(
+                "select t.point from test t " +
+                "join student s on t.student_no = s.no " +
+                "where t.subject_cd = ? and t.no = ? " +
+                "and s.class_num = ? and t.school_cd = ?"
+            );
+            st.setString(1, subject.getCd());
+            st.setInt(2, no);
+            st.setString(3, classNum);
+            st.setString(4, school.getCd());
+            rs = st.executeQuery();
+            while (rs.next()) {
+                points.add(rs.getInt("point"));
+            }
+        } finally {
+            if (rs != null) try { rs.close(); } catch (SQLException e) {}
+            if (st != null) try { st.close(); } catch (SQLException e) {}
+            if (con != null) try { con.close(); } catch (SQLException e) {}
+        }
+        return points;
+    }
+
 }
