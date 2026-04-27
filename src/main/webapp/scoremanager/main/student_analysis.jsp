@@ -53,19 +53,8 @@
                         </table>
  
                         <div class="d-flex gap-2">
-                            <a href="StudentList.action" class="btn btn-secondary">学生一覧に戻る</a>
-                            <c:choose>
-                                <c:when test="${not empty student.lineUserId}">
-                                    <form method="post" action="LineNotify.action">
-                                        <input type="hidden" name="student_no" value="${student.no}">
-                                        <button type="submit" class="btn btn-success">LINEで通知</button>
-                                    </form>
-                                </c:when>
-                                <c:otherwise>
-                                    <button class="btn btn-secondary" disabled>LINE未登録</button>
-                                </c:otherwise>
-                            </c:choose>
-                        </div>
+						    <a href="StudentList.action" class="btn btn-secondary">学生一覧に戻る</a>
+						</div>
                     </div>
                 </c:otherwise>
             </c:choose>
