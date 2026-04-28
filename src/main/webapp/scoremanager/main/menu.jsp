@@ -34,6 +34,22 @@
 					<a href="SubjectList.action">科目管理</a>
 				</div>
 			</div>
+			<%-- メニューカードの下に追加 --%>
+			<div class="mt-5 px-4">
+			    <h3 class="h5 fw-bold mb-3">LINE成績通知 Bot 友達追加</h3>
+			    <div class="d-flex align-items-center gap-4 p-3 border rounded bg-light">
+			        <img src="/score/images/line_qr.png"
+			             alt="LINE Bot QRコード" width="120" height="120">
+			        <div>
+			            <p class="mb-1 fw-bold">成績サマリーをLINEで受け取ろう！</p>
+			            <ol class="mb-0 small text-muted ps-3">
+			                <li>QRコードをスキャンしてBotを友達追加</li>
+			                <li>BotからあなたのLINE IDが届く</li>
+			                <li><a href="/score/scoremanager/main/LineSetting.action">LINE設定画面</a>でIDを登録</li>
+			            </ol>
+			        </div>
+			    </div>
+			</div>
 		</section>
 	</c:param>
 </c:import>

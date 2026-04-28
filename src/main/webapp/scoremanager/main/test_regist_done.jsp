@@ -15,6 +15,25 @@
                 <div class="mt-4">
                     <a href="TestRegist.action" class="btn btn-primary">戻る</a>
                     <a href="TestList.action" class="btn btn-secondary ms-2">成績参照</a>
+                    <c:choose>
+					    <c:when test="${not empty sessionScope.user.lineUserId}">
+					        <form method="post" action="LineNotify.action" class="d-inline ms-2">
+					            <input type="hidden" name="f1" value="${f1}">
+					            <input type="hidden" name="f2" value="${f2}">
+					            <input type="hidden" name="f3" value="${f3}">
+					            <input type="hidden" name="f4" value="${f4}">
+					            <input type="hidden" name="from" value="regist">
+					            <button type="submit" class="btn btn-success">
+					                LINEでクラス成績を送信
+					            </button>
+					        </form>
+					    </c:when>
+					    <c:otherwise>
+					        <a href="LineSetting.action" class="btn btn-outline-secondary ms-2">
+					            LINE未設定(クリックして設定)
+					        </a>
+					    </c:otherwise>
+					</c:choose>   
                 </div>
             </div>
         </section>

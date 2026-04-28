@@ -107,6 +107,11 @@ public class TestRegistExecuteAction extends Action {
         TestDao tDao = new TestDao(); 
 
         tDao.save(testList); 
+     // ★追加：完了画面の「LINE送信ボタン」にデータを引き継ぐ
+        request.setAttribute("f1", request.getParameter("f1"));
+        request.setAttribute("f2", classNum);
+        request.setAttribute("f3", subjectCd);
+        request.setAttribute("f4", String.valueOf(no));
 
   
 

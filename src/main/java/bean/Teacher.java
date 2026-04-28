@@ -63,4 +63,15 @@ public class Teacher extends User implements Serializable {
     public void setSchool(School school) {
         this.school = school;
     }
+    
+ // ★追加: LINE ユーザーID
+    private String lineUserId;
+     
+    public String getLineUserId() { 
+    	return lineUserId; 
+    	}
+    public void setLineUserId(String lineUserId) { 
+    	this.lineUserId = lineUserId; 
+    	}
+
 }
