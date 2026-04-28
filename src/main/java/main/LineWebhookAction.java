@@ -28,7 +28,7 @@ public class LineWebhookAction extends Action {
     private static final String TOKEN = "kYOuIlmqzlnyZq7WVm/kbuMCepReOfIPofovMeXQcvuTL+ZFzLS4l2LbTE8Hb3pfo4fQ8AEgDUixK5ehYsdZKIBy2mI/sP09TV4rCXSSJ9SOBUp/EDU6I2Q6UmkIcW7H7Xb4YiDNxNselxX7zePKyAdB04t89/1O/w1cDnyilFU=";
     private static final String REPLY_URL = "https://api.line.me/v2/bot/message/reply";
     private static final String SYSTEM_URL =
-        "https://kitchen-rack-lustrous.ngrok-free.dev/score/scoremanager/main/Menu.action";
+        "https://score-by-c.duckdns.org/score/scoremanager/main/Menu.action";
 
     @Override
     public void execute(HttpServletRequest request,
